@@ -1,0 +1,21 @@
+\# Secretos y Entornos  
+.env  
+.venv/  
+env/
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+\# Datos locales (No subir bases vectoriales gigantes ni PDFs de clientes)  
+data/raw/  
+data/vector\_db/  
+\*.sqlite3
+
+\# Archivos de SO  
+.DS\_Store  
+Thumbs.db

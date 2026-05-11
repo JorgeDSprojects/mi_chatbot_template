@@ -7,12 +7,12 @@ app:
 # 2\. Variables del Motor LLM (Se leerán en src/core/llm\_factory.py)  
 llm:  
   provider: "openai"           # Opciones futuras: "anthropic", "ollama"  
-  model\_name: "gpt-4o-mini"  
+  model_name: "gpt-4o-mini"  
   temperature: 0.0             # 0.0 para respuestas precisas (RAG), 0.7+ para creatividad  
-  max\_tokens: 1000
+  max_tokens: 1000
 
 # 3\. Variables de RAG (Para futuros módulos)  
 rag:  
-  chunk\_size: 1024  
-  chunk\_overlap: 100  
-  vector\_db: "chroma"
+  chunk_size: 1024  
+  chunk_overlap: 100  
+  vector_db: "chroma"

@@ -14,17 +14,13 @@ Abre el archivo .env que creaste en la raíz del proyecto y pega lo siguiente:
 
 ```
 
-\# Proveedores de LLM  
-OPENAI\_API\_KEY="sk-tu-api-key-de-openai-aqui"
+# Proveedores de LLM  
+OPENAI_API_KEY="sk-tu-api-key-de-openai-aqui"
 
-\# Observabilidad y Trazabilidad (LangSmith)  
-LANGCHAIN\_TRACING\_V2="true"  
-LANGCHAIN\_API\_KEY="lsv2-tu-api-key-de-langsmith-aqui"  
-LANGCHAIN\_PROJECT="asistente\_modular\_v1"
-
-\# En el futuro, si cambiamos de proveedor o añadimos bases vectoriales:  
-\# ANTHROPIC\_API\_KEY="sk-ant-..."  
-\# PINECONE\_API\_KEY="..."
+# Observabilidad y Trazabilidad (LangSmith)  
+LANGCHAIN_TRACING_V2="true"  
+LANGCHAIN_API_KEY="lsv2-tu-api-key-de-langsmith-aqui"  
+LANGCHAIN_PROJECT="asistente_modular_v1"
 
 ```
 
@@ -41,11 +37,13 @@ El .gitignore le dice a git qué archivos o carpetas **debe ignorar por completo
 .venv/  
 env/
 
-\# Caché de Python y compilados  
-\_\_pycache\_\_/  
-\*.pyc  
-.pytest\_cache/  
-.ruff\_cache/
+\# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
 
 \# Datos locales (No subir bases vectoriales gigantes ni PDFs de clientes)  
 data/raw/  
@@ -66,24 +64,24 @@ Abre tu archivo config.yaml y pega esta estructura:
 
 
 ```
-\# 1\. Variables de Interfaz  
+# 1\. Variables de Interfaz  
 app:  
-  title: "Asistente RAG Modular"  
+  title: "Asistente"  
   description: "Chatbot agnóstico preparado para producción."  
   theme: "soft"
 
-\# 2\. Variables del Motor LLM (Se leerán en src/core/llm\_factory.py)  
+# 2\. Variables del Motor LLM (Se leerán en src/core/llm\_factory.py)  
 llm:  
-  provider: "openai"           \# Opciones futuras: "anthropic", "ollama"  
-  model\_name: "gpt-4o-mini"  
-  temperature: 0.0             \# 0.0 para respuestas precisas (RAG), 0.7+ para creatividad  
-  max\_tokens: 1000
+  provider: "openai"           # Opciones futuras: "anthropic", "ollama"  
+  model_name: "gpt-4o-mini"  
+  temperature: 0.0             # 0.0 para respuestas precisas (RAG), 0.7+ para creatividad  
+  max_tokens: 1000
 
-\# 3\. Variables de RAG (Para futuros módulos)  
+# 3\. Variables de RAG (Para futuros módulos)  
 rag:  
-  chunk\_size: 1024  
-  chunk\_overlap: 100  
-  vector\_db: "chroma"
+  chunk_size: 1024  
+  chunk_overlap: 100  
+  vector_db: "chroma"
 ```
 
 

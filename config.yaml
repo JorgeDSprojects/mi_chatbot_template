@@ -3,6 +3,7 @@ app:
   title: "Asistente"  
   description: "Chatbot agnóstico preparado para producción."  
   theme: "soft"
+  use_streaming: false
 
 # 2\. Variables del Motor LLM (Se leerán en src/core/llm\_factory.py)  
 llm:  

@@ -16,6 +16,7 @@ class AppSettings(BaseSettings):
     title: str = "Chatbot Modular" # Valor por defecto por si se borra del YAML
     description: str = ""
     theme: str = "default"
+    use_streaming: bool = True
 
 # --- Contrato que ya teníamos para el LLM ---
 class LLMSettings(BaseSettings):

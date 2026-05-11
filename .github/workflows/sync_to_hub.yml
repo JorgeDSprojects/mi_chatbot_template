@@ -1,0 +1,22 @@
+# .github/workflows/sync_to_hub.yml
+name: Sync to Hugging Face Hub
+
+on:
+  push:
+    branches: [main] # Se ejecuta cada vez que haces push a 'main'
+  workflow_dispatch: # Permite ejecutarlo a mano desde GitHub
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Necesario para traer todo el historial de Git
+          
+      - name: Sincronizar con Hugging Face Spaces
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git push https://TU_USUARIO:$HF_TOKEN@huggingface.co/spaces/TU_USUARIO/TU_SPACE main -f

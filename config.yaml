@@ -1,0 +1,18 @@
+# 1\. Variables de Interfaz  
+app:  
+  title: "Asistente"  
+  description: "Chatbot agnóstico preparado para producción."  
+  theme: "soft"
+
+# 2\. Variables del Motor LLM (Se leerán en src/core/llm\_factory.py)  
+llm:  
+  provider: "openai"           # Opciones futuras: "anthropic", "ollama"  
+  model\_name: "gpt-4o-mini"  
+  temperature: 0.0             # 0.0 para respuestas precisas (RAG), 0.7+ para creatividad  
+  max\_tokens: 1000
+
+# 3\. Variables de RAG (Para futuros módulos)  
+rag:  
+  chunk\_size: 1024  
+  chunk\_overlap: 100  
+  vector\_db: "chroma"
